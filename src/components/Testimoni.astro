@@ -1,0 +1,55 @@
+---
+import ContentSection from '~/components/content-section.astro';
+import PersonIcon from '@astropub/icons/Person'
+const testimoni = [
+	{
+	    nama: 'Sarah',
+		title: 'Mahasiswi Sistem Informasi',
+		comment: 'Cyber House telah mengubah pandangan saya tentang cyber security. Materinya sangat jelas, dan para instrukturnya selalu siap membantu. Setelah bootcamp ini, saya merasa lebih percaya diri dengan kemampuan saya.'
+	},
+	{
+	    nama: 'Rizky',
+		title: 'Junior Penetration Tester',
+		comment: 'Bootcamp Cyber House memberikan dasar kuat untuk karir di keamanan siber dengan program yang terstruktur baik dan ilmu yang aplikatif. Sangat direkomendasikan.'
+	},
+	{
+		nama: 'Andini',
+		title: 'Fresh Graduate Teknik Informatika',
+		comment: 'Cyber House menggabungkan teori dan praktik dengan efektif, memberikan wawasan baru tentang perlindungan data dan sistem dari ancaman siber melalui tantangan yang memacu pemikiran kritis.'
+	}
+]
+---
+
+<ContentSection
+	title="LIHAT SENDIRI HASILNYA"
+	id="">
+	<div class="container px-2">
+		<div class="grid gap-6 md:grid-cols-1 lg:grid-cols-3">
+			
+			{
+				testimoni.map(({nama,title,comment}) => (
+				<div class="rounded-lg bg-[#f5ba20] p-6 shadow-lg">
+				<div class="mb-4 flex items-center gap-3">
+					<div>
+						<div class="flex gap-3">
+							<PersonIcon size="25" class="mt-[4px]"/>
+							<h3 class="font-semibold text-lg">{nama}</h3>
+						</div>
+						<p class="text-gray-600">{title}</p>
+					</div>
+				</div>
+				<p class="text-gray-700">{comment}</p>
+			</div>
+				))
+			}
+			</div>
+
+	</div>
+	<center>
+		<div class="px-2" >
+			<h3 class="font-bold text-xl mt-[2rem]" >Belajar 3 Bulan udah bisa bangun Portofolio</h3>
+			<p class="w-[50%] mt-[2rem] max-md:w-[80%] max-sm:w-full" >Cyber House tidak akan bisa melahirkan ahli Cyber Security sebanyak ini jika Kami tidak komitmen dan disiplin mendeliver kurikulum serta fasilitas after-sales service terbaik.</p>
+			<h1 class="mt-[2rem] font-bold text-lg max-md:w-[80%] max-sm:w-full" >MEREKA SUDAH SATU LANGKAH DI DEPANMU, YAKIN MASIH MAU NGANGGUR TERUS?</h1>
+		</div>
+	</center>
+</ContentSection>

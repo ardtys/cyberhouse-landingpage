@@ -1,0 +1,21 @@
+/* TODO: consider creating <Button> and <GradientText> components */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+a,
+.btn {
+  @apply transition-colors duration-200;
+  @apply hover:text-[#f5ba20];
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+  @apply bg-[#f5ba20];
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}

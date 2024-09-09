@@ -1,0 +1,89 @@
+---
+import ContentSection from '~/components/content-section.astro';
+import { Image } from 'astro:assets';
+import Gambar1 from '~/assets/benefit/Dev.png';
+import Gambar2 from '~/assets/benefit/Online consulting-rafiki.png';
+import Gambar3 from '~/assets/benefit/comunity.webp'
+import { Icon } from 'astro-icon/components'
+---
+
+<ContentSection
+	title="KENAPA BELAJAR DI CYBER HOUSE?"
+	id="Aboutus">
+	
+<div class="px-2 " >
+		<!-- Table 1 -->
+		<div class="bg-offset grid grid-cols-2 rounded-md max-w-6xl max-lg:grid-cols-1" >
+			<div class="p-5 max-lg:order-1" >
+			  <h1 class="text-2xl font-bold" >DIBIMBING SAMPAI BISA DAPAT PROJECT PERTAMA</h1>
+			  <h1 class="mt-[1rem] text-xl font-bold text-[#f5ba20]" >AKSES LIFETIME</h1>
+			  <p class="mt-[1rem]" >Kamu akan dibimbing dari 0 sampai bisa buat portofolio pertama lewat berbagai modul dan project-project penunjang. Diajarkan langsung oleh expert di industri yang sudah memiliki sertifikasi Certified Information Systems Security Professional (CISSP) ISC2.</p>
+			  <div class="flex gap-5 mt-[1rem]" >
+				<div class="justify-center object-center align-middle" >
+					<center>
+						<h1 class="font-extrabold text-xl" >100+</h1>
+					<p class="font-bold text-md" >Modules</p>
+					</center>
+				</div>
+				<div class="justify-center object-center align-middle" >
+					<center>
+						<h1 class="font-extrabold text-xl" >50+</h1>
+					<p class="font-bold text-md" >Live Class</p>
+					</center>
+				</div>
+				<div class="justify-center object-center align-middle" >
+					<center>
+						<h1 class="font-extrabold text-xl" >10+</h1>
+					<p class="font-bold text-md" >Practice Modules</p>
+					</center>
+				</div>
+			  </div>
+			</div>
+	
+			<div>
+				<center>
+					<Image loading="lazy" alt="Image 1" src={Gambar1} width={450} class="max-lg:order-2" />
+				</center>
+			</div>
+		</div>
+	
+		<!-- Table 2 -->
+		<div class="bg-offset mt-[2rem] grid grid-cols-2 rounded-md max-w-6xl max-lg:grid-cols-1" >
+			<div>
+				<center>
+					<Image loading="lazy" alt="Image 1" src={Gambar2} width={400} class="max-lg:order-2" />
+				</center>
+			</div>
+			<div class="p-5 max-lg:order-1" >
+				<h1 class="text-2xl font-bold" >LIVE MENTORING & BEDAH PORTOFOLIO</h1>
+				<div class="mt-[2rem]">
+					<div class="flex gap-3" >
+						<Icon name="fluent:live-24-filled" class="text-[#f5ba20] mt-[1px]" size="30" />
+						<p>Live mentoring 2x seminggu</p>
+					</div>
+					<div class="flex gap-3 mt-[2rem]" >
+						<Icon name="simple-icons:codementor" class="text-[#f5ba20] mt-[1px]" size="30" />
+						<p>Konsultasi karier dan bedah portfolio</p>
+					</div>
+				</div>
+				<p class="mt-[2rem]">Evaluasi hasil praktek modul dan konsultasikan semua kebingunganmu sepuasnya untuk bangun portofolio yang relevan dengan industri.</p>
+			  </div>
+		</div>
+	
+		<!-- Table 3 -->
+		<div class="bg-offset mt-[2rem] grid grid-cols-2 rounded-md max-w-6xl max-lg:grid-cols-1" >
+			<div class="p-5 max-lg:order-1" >
+				<h1 class="text-2xl font-bold" >KOMUNITAS EXCLUSIVE</h1>
+				<p class="mt-[2rem] " >Perkembangan industri Cyber Security yang cepat membuat kita harus adaptif dan updated, makanya komunitas VIP hadir dengan tujuan untuk diskusi, berbagi pengalaman, networking, dan sharing informasi lowongan kerja dan lainnya.</p>
+			  </div>
+			
+			  <div>
+				<center>
+					<Image loading="lazy" alt="Image 1" src={Gambar3} width={400} class="max-lg:order-2" />
+				</center>
+			</div>
+		</div>
+</div>
+
+
+</ContentSection>

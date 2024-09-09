@@ -1,0 +1,42 @@
+---
+import Header from "~/components/header.astro";
+import Footer from "~/components/footer.astro";
+import Form from '~/components/Content/form.astro'
+import "~/styles/index.css";
+---
+
+<!doctype html>
+<html
+	lang="en"
+	class="h-full overflow-x-hidden motion-safe:scroll-smooth"
+	data-theme="dark"
+>
+	<head>
+		<title>Cyber House</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+	</head>
+	<body
+		class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+	>
+		<Header />
+		<section>
+			<center>
+				<div
+					class="grid w-[60%] gap-3 px-2 py-28 max-lg:w-[80%] max-sm:w-full "
+				>
+					<div class="rounded-md bg-offset p-2 ">
+						<div class="p-5 " >
+                            <p class="text-xs text-white text-left font-thin" >Join program ini & bangun portofolio <span class="font-bold" >cuma 3 bulan :</span></p>
+                            <h1 class="font-extrabold text-white text-5xl text-left mt-[1rem]" >Rp5.000.000</h1><br/>
+                            <p class="text-left" >SEHARGA MAKAN PER HARI SELAMA 3 BULAN (LIFETIME AKSES)</p>
+							<p class="text-left" >KELAS AKAN DIMULAI PADA 11 OKTOBER</p>
+                        </div>
+                        <Form nomor="6285333423070" title="Daftar Kelas Premium Cyber House"  subject=" Mastering Cyber Security: Zero To Hero" code="true"/>
+				</div>
+			</center>
+		</section>
+	</body>
+	<Footer />
+
+</html>

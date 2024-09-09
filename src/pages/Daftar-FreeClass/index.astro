@@ -1,0 +1,40 @@
+---
+import Header from "~/components/header.astro";
+import Footer from "~/components/footer.astro";
+import Form from '~/components/Content/form.astro'
+import "~/styles/index.css";
+---
+
+<!doctype html>
+<html
+	lang="en"
+	class="h-full overflow-x-hidden motion-safe:scroll-smooth"
+	data-theme="dark"
+>
+	<head>
+		<title>Cyber House</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+	</head>
+	<body
+		class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+	>
+		<Header />
+		<section>
+			<center>
+				<div
+					class="grid w-[60%] gap-3 px-2 py-28 max-lg:w-[80%] max-sm:w-full "
+				>
+					<div class="rounded-md bg-offset p-2 ">
+						<div class="p-5 text-left" >
+                           <h1 class="font-bold text-3xl" >Daftar Kelas Gratis Cyber House :</h1>
+                           <h2 class="font-bold text-2xl mt-[10px] text-[#f5ba20]" >Secure Your Code With SAST</h2>
+                        </div>
+                        <Form nomor="6287887893143" title="Daftar Kelas Gratis Cyber House"  subject=" Secure Your Code With SAST" code="false"/>
+				</div>
+			</center>
+		</section>
+	</body>
+	<Footer />
+
+</html>

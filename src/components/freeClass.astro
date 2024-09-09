@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets"
+import ContentSection from "./content-section.astro"
+import { Icon } from "astro-icon/components"
+import securingCode from "../assets/FreeClass/Secure-code.webp"
+---
+
+<ContentSection id="" title="Free Class" >
+  <div class="rounded-md bg-offset grid grid-cols-2 max-w-6xl px-2 max-lg:grid-cols-1 " >
+    <div class="text-left p-5 max-lg:order-1" >
+      <h1 class="text-2xl font-extrabold text-[#f5ba20]" >Secure Your Code With SAS</h1>
+      <p class="text-sm mt-[1rem]" >Kamu akan diajak mengenal & menganalisis berbagai kode untuk menemukan kerentanan keamanan yang membuat aplikasi organisasi rentan terhadap serangan siber.</p>
+      <p class="text-sm mt-[1rem] font-bold text-[#f5ba20]" >*Kelas ini cocok untuk level beginner sampai intermediate </p>
+      <div class="flex mt-[1rem] gap-3" >
+        <Icon name="mdi:calendar-outline" size={30} class="text-[#f5ba20]" />
+        <h1 class="font-bold" >14 September 2024, 09:00 WIB</h1>
+      </div>
+      <div class="mt-[1.5rem] flex gap-3" >
+        <Icon name="fxemoji:loudspeaker" size={30} class="mt-[1rem]" />
+        <h1 class="font-bold" >Terbatas hanya untuk <span class="text-[#f5ba20] font-extrabold text-3xl" >50</span> pendaftar <span class="font-extrabold text-red-500 text-xl" >!!!</span></h1>
+      </div>
+      <a href="/Daftar-FreeClass" class="mt-[0.5rem]" >
+        <button class="mt-[2rem] bg-[#f5ba20] px-[8rem] py-2 rounded-md hover:bg-transparent border-2 border-[#f5ba20] transition-all duration-500 max-sm:px-[5rem] max-sm:w-full" >
+            Daftar Gratis
+        </button>
+    </a>
+    </div>
+
+    <div class="text-center " >
+      <center>
+        <Image loading="lazy" alt="freeclass-img" src={securingCode} width={450} class="max-lg:order-2" />
+      </center>
+    </div>
+  </div>
+</ContentSection>
+

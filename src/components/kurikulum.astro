@@ -1,0 +1,151 @@
+---
+import '~/styles/timr.css';
+import ContentSection from '~/components/content-section.astro';
+import { Icon } from 'astro-icon/components';
+
+interface Kurikulum {
+    no: number,
+    lesson: string,
+    title: string,
+    description: string,
+    materis: string[]
+}
+
+const kurikulums: Kurikulum[] = [
+	{
+	    no: 1,
+		lesson: "Lesson 1",
+		title: "Cyber Security Introduction",
+		description: "Lesson 1 ini akan menjadi awal perjalanan kamu untuk belajar mengenal Cyber Security. Pada Lesson ini kamu akan mempelajari banyak hal dari CIA Triad hingga Hashing.  Lesson 1 berisi:",
+		materis: [
+			"Intro to Cyber Security",
+			 "The CIA Triad",
+			 "OSI Layer",
+			 "Identity Access Management",
+			 "Security Governance",
+			 "Cryptography",
+			 "Hashing",
+			 "Quiz & Practice"
+
+		]
+	},
+    {
+        no: 2,
+        lesson: "Lesson 2",
+        title: "Network Security",
+        description: "Jika kamu berhasil menyelesaikan lesson satu dengan baik maka perjalanan selanjutnya yaitu mengenal lebih dalam apa itu network security pada lesson 2 ini. Lesson 2 berisi:",
+        materis: [
+            "OSI Layer & TCP/IP",
+            "DNS",
+            "Security Protocol",
+            "Firewall & Next Gen Firewall",
+            "Quiz & Practice"
+        ]
+    },
+    {
+        no: 3,
+        lesson: "Lesson 3",
+        title: "Cyber Security Domain & Team Classification",
+        description: "Pada lesson ke 3 ini kamu akan kami ajak mengenal Cyber Security Domain serta classificationnya. Kamu akan merasa tertantang lebih dalam dengan materis yang ada pada lesson ini. Lesson 3 ini berisi:",
+        materis: [
+            "Security Architecture",
+            "Risk Assessment",
+            "Threat Intelligence",
+            "GRC",
+            "Security Operation",
+            "Physical Security",
+            "Team Classification",
+            "Quiz"
+        ]
+    },
+    {
+        no: 4,
+        lesson: "Lesson 4",
+        title: "Malware & Ransomware",
+        description: "Lesson 4 ini akan membantu kamu untuk mengenal Malware & Ransomware hingga kamu akan mengenal beberapa bentuk virusnya. Pada lesson ini kamu akan cukup membuat kamu untuk lebih penasaran dengan lesson berikutnya. Lesson 4 berisi:",
+        materis: [
+            "Introduction to Malware",
+            "Introduction to Ransomware",
+            "Virus & Trojan",
+            "Spyware, Rootkit",
+            "Antimalware",
+            "Quiz"
+        ]
+    },
+    {
+        no: 5,
+        lesson: "Lesson 5",
+        title: "Cyber Security Types of Attack",
+        description: "Pada lesson ke 5 ini kamu akan kami ajak mengenal Cyber Security Types of Attack. Lesson ini akan membawamu jauh mengenal cybersecurity. Lesson 5 ini berisi:",
+        materis: [
+            "Password Attack",
+            "Dos & DDOS",
+            "DNS Attack",
+            "Network Attack",
+            "MITM",
+            "Social Engineering",
+            "SQL Injection",
+            "CyberSecurity Attack Tools",
+            "Quiz & Practice"
+        ]
+    },
+    {
+        no: 6,
+        lesson: "Lesson 6",
+        title: "Cyber Security Defenses",
+        description: "Pada lesson 6 ini kamu akan belajar serangkaian strategi, teknologi, dan tindakan yang dirancang untuk melindungi sistem komputer, jaringan, dan data dari ancaman cyber. Akan banyak sekali materis yang diberikan pada lesson ini. Lesson 6 berisi:",
+        materis: [
+            "Antivirus",
+            "MFA",
+            "Encryption",
+            "Password Management",
+            "Backups",
+            "Update",
+            "Incident Response",
+            "Firewall & NGFW & WAF",
+            "SIEM",
+            "VPN",
+            "DLP",
+            "IPS/IDS",
+            "Threat Intelligence",
+            "SOAR",
+            "SOC",
+            "Alerting",
+            "CyberSecurity Defenses Tools",
+            "WAF",
+            "NGFW",
+            "SOC",
+            "Quiz & Practice"
+        ]
+    }
+]
+---
+
+<ContentSection id='' title='ROADMAP TO CYBER SECURITY V1.0' >
+	<section class="timeline-section">
+		<div class="timeline-items">
+			{
+                kurikulums.map(kurikulum => (
+                    <div class="timeline-item" >
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">{kurikulum.lesson}</div>
+                        <div class="timeline-content">
+                            <h3>{kurikulum.title}</h3>
+                            <p class="text-left">
+                                {kurikulum.description}
+                                <br /><br/>
+                                {kurikulum.materis.map(materi => (
+                                  <div class="text-left flex text-green-600 gap-3">
+                                    <Icon name="charm:circle-tick" size="25" />
+                                    <p>{materi}</p>
+                                  </div>
+                                ))}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+			</div>
+	</section>
+
+</ContentSection>

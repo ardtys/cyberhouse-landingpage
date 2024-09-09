@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets';
+import Hacker from '~/assets/home/Hacker-pana.png';
+import Header from './header.astro';
+import background from './../assets/background/Background.mp4';
+---
+
+<section class="relative h-screen w-full" id="Home">
+  <Header/>
+  
+  <!-- Video Background -->
+  <div class="absolute inset-0 z-[-1] overflow-hidden">
+    <video
+      class="absolute inset-0 h-full w-full object-cover"
+      autoplay
+      loop
+      muted
+    >
+      <source src={background} type="video/mp4" />
+    </video>
+  </div>
+  <br>
+  <br>
+  <div class="px-[3px] mt-[5rem] " >
+	<center>
+		<h1 class="text-4xl" ><span class="text-[#f5ba20] font-bold" >Bangun portofolio dan dapatkan kesempatan kerja <br class="max-sm:hidden" ></span> pertama di bidang Cybersecurity</h1>
+		<p class="w-[55%] mt-[1rem] max-sm:w-[90%] " >9 dari 10 (atau 90%) profesional cybersecurity menyatakan bahwa memiliki portofolio sangat penting untuk mendapatkan pekerjaan pertama mereka di industri ini.</p>
+		<p class="mt-[1rem]" >Gaji Rata Rata Cyber Security Berkisar <span class="text-[#f5ba20] font-bold" >Rp.7.000.000 - Rp. 15.000.000</span></p>
+		<a href="/join-now" class="mt-[3rem]" >
+			<button class="mt-[2rem] bg-[#f5ba20] px-[9rem] py-4 rounded-md hover:bg-transparent border-2 border-[#f5ba20] transition-all duration-500 max-sm:px-[5rem]" >
+				Join Now
+			</button>
+		</a>
+	  </center>
+  </div>
+	
+</section>
+
+<noscript>
+  <style>
+    #splash-bg-fallback {
+      display: block;
+    }
+  </style>
+</noscript>
+
+<style>
+  @keyframes float {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(0, 30px, 0);
+    }
+  }
+</style>

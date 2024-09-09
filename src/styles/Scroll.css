@@ -1,0 +1,19 @@
+.logo-container {
+  display: flex;
+}
+
+.logo {
+  flex-shrink: 0;
+  display: flex;
+  animation: infinite-scroll 7s linear infinite;
+}
+
+
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

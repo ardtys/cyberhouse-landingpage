@@ -1,0 +1,202 @@
+---
+export interface Props {
+    title: string;
+    subject: string;
+    nomor: string;
+    code: string;
+}
+
+const { nomor, subject, title, code } = Astro.props;
+---
+
+<div class="bottom-2 w-full border border-solid" style="border-width: 3px;">
+</div>
+<form
+    id="orderForm"
+    data-title={title}
+    data-subject={subject}
+    data-nomor={nomor}
+    data-code={code}
+>
+    <div class="mt-5 grid grid-cols-2 gap-3 text-left">
+        <div>
+            <label for="firstName" class="font-bold text-lg">
+                First Name
+            </label>
+            <input
+                id="firstName"
+                type="text"
+                class="w-full rounded-lg p-2 px-5 text-black text-lg"
+                placeholder="First Name"
+                name="first name"
+            />
+        </div>
+        <div>
+            <label for="lastName" class="font-bold text-lg"> Last Name </label>
+            <input
+                id="lastName"
+                type="text"
+                class="w-full rounded-lg p-2 px-5 text-black text-lg"
+                placeholder="Last Name"
+                name="last name"
+            />
+        </div>
+    </div>
+    <div class="mt-[1rem] text-left">
+        <label for="noTelephone" class="font-bold text-lg">
+            No Telephone
+        </label>
+        <input
+            id="noTelephone"
+            type="tel"
+            class="w-full rounded-lg p-2 px-5 text-black text-lg"
+            placeholder="No Telephone"
+            name="noTelephone"
+        />
+    </div>
+    <div class="mt-[1rem] text-left">
+        <label for="email" class="font-bold text-lg"> Email </label>
+        <input
+            id="email"
+            type="email"
+            class="w-full rounded-lg p-2 px-5 text-black text-lg"
+            placeholder="Email"
+            name="email"
+        />
+    </div>
+    <div class="mt-[1rem] text-left grid grid-cols-2 gap-3" >
+        <div>
+            <label for="sumber" class="block mb-2 text-lg text-white font-bold ">Kamu Tau Dari?</label>
+        <select id="sumber" name="sumber" class="bg-white border p-2 px-5 block border-gray-300 text-black text-lg rounded-lg focus:ring-[#f5ba20] w-full dark:focus:ring-[#f5ba20] dark:focus:border-[#f5ba20]">
+          <option selected value="" >Pilih</option>
+          <option id="sumber" value="Teman">Teman</option>
+          <option id="sumber" value="Tiktok">Tiktok</option>
+          <option id="sumber" value="Twiter">Twiter</option>
+          <option id="sumber" value="Instagram">Instagram</option>
+        </select>
+        </div>
+        <div>
+            <label for="kesibukan" class="block mb-2 text-lg text-white font-bold ">Kesibukan</label>
+        <select id="kesibukan" name="kesibukan" class="bg-white border p-2 px-5 block border-gray-300 text-black text-lg rounded-lg focus:ring-[#f5ba20] w-full dark:focus:ring-[#f5ba20] dark:focus:border-[#f5ba20]">
+          <option selected value="" >Pilih</option>
+          <option id="kesibukan" value="Sekolah">Sekolah</option>
+          <option id="kesibukan" value="Bekerja">Bekerja</option>
+        </select>
+        </div>
+    </div>
+    {
+        code == "true" ? (
+            <div class="mt-[1rem] text-left">
+                <label for="Promo-Code" class="font-bold text-lg">
+                    Promo Code
+                </label>
+                <input
+                    id="Promo-Code"
+                    type="text"
+                    class="w-full rounded-lg p-2 px-5 text-black text-lg"
+                    placeholder="Promo Code"
+                    name="Promo-Code"
+                />
+            </div>
+        ) : (
+            ""
+        )
+    }
+    <div class="flex gap-2 mt-[1.5rem]">
+        <input id="policy" type="checkbox" value="setuju" />
+        <p class="text-left mt-[-0.6rem]">
+            Dengan mendaftar, saya menerima Terms and Conditions <span
+                class="font-bold text-[#fab520]">Cyber House</span>
+        </p>
+    </div>
+    <button
+        type="submit"
+        id="submitButton"
+        class="my-[2rem] rounded-md border-2 border-[#f5ba20] bg-[#f5ba20] px-[8rem] py-3 transition-all duration-500 hover:bg-transparent max-sm:px-[5rem] w-full"
+    >
+        Join Now
+    </button>
+</form>
+
+<script type="module">
+function handleFormSubmit(event) {
+    event.preventDefault();
+
+    // Ambil elemen form
+    const form = document.getElementById("orderForm");
+
+    if (!form) {
+        console.error("Form not found");
+        return;
+    }
+
+    // Ambil data dari form
+    const formData = new FormData(form);
+    const formObject = {};
+
+    // Mengonversi FormData menjadi objek JavaScript biasa
+    formData.forEach((value, key) => {
+        formObject[key] = value;
+    });
+
+    // Ambil nilai-nilai dari atribut data
+    const checkbox = document.getElementById('policy');
+    const code = form.getAttribute("data-code"); // Konversi string ke boolean
+    const nama = (formObject["first name"] || "").trim() + " " + (formObject["last name"] || "").trim();
+    const noTelephone = (formObject["noTelephone"] || "").trim();
+    const email = (formObject["email"] || "").trim();
+    const codePromo = (formObject["Promo-Code"] || "").trim();
+    const nomor = form.getAttribute("data-nomor");
+    const title = form.getAttribute("data-title");
+    const subject = form.getAttribute("data-subject");
+    const sumber = (formObject["sumber"] || "").trim();
+    const kesibukan = (formObject["kesibukan"] || "").trim();
+
+    // Mengecek status checkbox
+    if (!checkbox.checked) {
+        return alert("Anda harus menyetujui kebijakan kami");
+    }
+
+
+    // Mengecek data kosong
+    if (nama == "" || noTelephone == "" || kesibukan == "" || email === "" || sumber === "") {
+        return alert("Data tidak boleh kosong");
+    }
+
+    let message = `
+🎉 **${title}** 🎉
+%0A%0A
+📚 Kelas: ${subject}
+%0A%0A
+👤 Nama: ${encodeURIComponent(nama)}%0A%0A
+📞 Nomor Telepon: ${encodeURIComponent(noTelephone)}%0A%0A
+📧 Email: ${encodeURIComponent(email)}%0A%0A
+👨‍🎓/💼 Kesibukan: ${encodeURIComponent(kesibukan)}%0A%0A
+🌟 Sumber Informasi: ${encodeURIComponent(sumber)}%0A%0A
+${code === "true" ? `🎟️ Code Promo: ${encodeURIComponent(codePromo)}%0A%0A` : ""}
+
+📝 Dengan mendaftar, saya menerima Terms %26 Conditions %26 Cyber House.%0A%0A
+
+Terima kasih atas pendaftarannya%21 🌟`
+    // Membuat URL WhatsApp dengan parameter query yang telah di-encode
+    let url = `https://api.whatsapp.com/send/?phone=${nomor}&text=${message}`;
+
+
+    // Mengarahkan ke URL WhatsApp
+    try {
+        window.open(url, "_blank");
+    } catch (error) {
+        console.error("Failed to open URL:", error); // Debug: Tangkap dan log kesalahan
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("orderForm");
+    if (form) {
+        form.addEventListener("submit", handleFormSubmit);
+    }
+});
+
+
+</script>
+
