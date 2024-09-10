@@ -1,5 +1,6 @@
 ---
 import * as Icon from "@astropub/icons";
+import Dropdown from "./Content/dropdown.astro";
 
 const faq = [
     {
@@ -31,79 +32,9 @@ const faq = [
 <center>
     {
         faq.map(({ answer, question }) => (
-            <div class="accordion group relative mt-[1rem]  w-[80%] max-sm:w-[90%] rounded-md bg-offset">
-                <button
-                    class="accordion__button flex w-full flex-1 items-center justify-between gap-2 p-3 text-left font-medium transition text-2xl hover:text-[#f5ba20] max-md:text-lg max-sm:text-sm sm:px-4"
-                    type="button"
-                    id={`${question} accordion menu button`}
-                    aria-expanded="false"
-                    aria-controls={`${question} accordion menu content`}
-                >
-                    {question}
-
-                    <Icon.ChevronDown
-                        aria-hidden="true"
-                        class="accordion__chevron h-7 w-7 shrink-0 transition-transform"
-                    />
-                </button>
-
-                <div
-                    id={`${question} accordion menu content`}
-                    aria-labelledby={`${question} accordion menu button`}
-                    class="accordion__content hidden max-h-0 overflow-hidden px-3 transition-all duration-300 ease-in-out sm:px-4"
-                >
-                    <p class="prose mb-4 mt-1 max-w-full text-left transition-[height] max-sm:text-sm">
-                        {answer}
-                    </p>
-                </div>
-            </div>
+           <Dropdown Question={question} Answer={answer} size="2xl" color="offset" id="faq"/>
         ))
     }
 </center>
-
-
 </section>
 
-<script>
-    function accordionSetup() {
-        const accordionMenus = document.querySelectorAll(
-            ".accordion",
-        ) as NodeListOf<HTMLElement>;
-        accordionMenus.forEach((accordionMenu) => {
-            const accordionButton = accordionMenu.querySelector(
-                ".accordion__button",
-            ) as HTMLElement;
-            const accordionChevron = accordionMenu.querySelector(
-                ".accordion__chevron",
-            ) as HTMLElement;
-            const accordionContent = accordionMenu.querySelector(
-                ".accordion__content",
-            ) as HTMLElement;
-
-            if (accordionButton && accordionContent && accordionChevron) {
-                accordionButton.addEventListener("click", (event) => {
-                    if (!accordionMenu.classList.contains("active")) {
-                        accordionMenu.classList.add("active");
-                        accordionButton.setAttribute("aria-expanded", "true");
-                        accordionContent.classList.remove("hidden");
-                        accordionContent.style.maxHeight =
-                            accordionContent.scrollHeight + "px";
-                        accordionChevron.classList.add("rotate-180");
-                    } else {
-                        accordionMenu.classList.remove("active");
-                        accordionButton.setAttribute("aria-expanded", "false");
-                        accordionContent.style.maxHeight = "0px";
-                        accordionChevron.classList.remove("rotate-180");
-                        setTimeout(() => {
-                            accordionContent.classList.add("hidden");
-                        }, 300);
-                    }
-                    event.preventDefault();
-                    return false;
-                });
-            }
-        });
-    }
-    accordionSetup();
-    document.addEventListener("astro:after-swap", accordionSetup);
-</script>
