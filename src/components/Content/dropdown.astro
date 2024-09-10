@@ -1,0 +1,136 @@
+---
+import * as Icon from "@astropub/icons";
+
+export type Props = {
+  Question: string,
+  Answer: string,
+  size: string,
+  color: string,
+  id: string,
+};
+
+const { Question, Answer, size, color, id } = Astro.props;
+---
+{
+ id == "term" ? (<div>
+  <center>
+    <div class=`accordion text-left group relative mt-[1rem] w-full  rounded-md bg-gray-900`>
+      <button
+        class={`accordion__button flex w-full flex-1 items-center justify-between gap-2 p-3 text-left font-medium transition text-${size} hover:text-[#f5ba20] max-md:text-lg max-sm:text-sm sm:px-4`}
+        type="button"
+        id={`Term & Condition accordion menu button`}
+        aria-expanded="false"
+        aria-controls={`Term & Condition accordion menu content`}
+      >
+        Term & Condition
+        <Icon.ChevronDown
+          aria-hidden="true"
+          class="accordion__chevron h-7 w-7 shrink-0 transition-transform"
+        />
+      </button>
+
+      <div
+        id={`Term & Condition accordion menu content`}
+        aria-labelledby={`Term & Condition accordion menu button`}
+        class="accordion__content hidden max-h-0 overflow-hidden px-3 transition-all duration-300 ease-in-out sm:px-4"
+      >
+        <div class="prose mb-4 mt-1 max-w-full text-left transition-[height] max-sm:text-sm">
+          <h1>Terms and Conditions - Cyber House</h1><br>
+    
+    <p>Website Cyber House, dapat diakses dari <a href="https://cyber-house.id" class="text-[#f5ba20]">cyber-house.id</a>, salah satu prioritas utama kami adalah privasi pengunjung kami. Dokumen Kebijakan Privasi ini berisi jenis informasi yang dikumpulkan dan dicatat oleh cyber-house.id dan bagaimana kami menggunakannya.</p><br>
+    
+    <p>Jika Anda memiliki pertanyaan tambahan atau memerlukan informasi lebih lanjut tentang Kebijakan Privasi kami, jangan ragu untuk menghubungi kami.</p><br>
+    
+    <h2>Informasi yang Kami Kumpulkan</h2><br>
+    
+    <p><a href="https://cyber-house.id" class="text-[#f5ba20]">cyber-house.id</a> mengikuti prosedur standar menggunakan file log. File-file ini mencatat pengunjung ketika mereka mengunjungi situs web. Semua perusahaan hosting melakukan ini dan merupakan bagian dari analisis layanan hosting. Informasi yang dikumpulkan oleh file log termasuk alamat protokol internet (IP), jenis browser, Penyedia Layanan Internet (ISP), tanggal dan waktu, halaman rujukan/keluar, dan mungkin jumlah klik. Ini tidak terkait dengan informasi apa pun yang dapat diidentifikasi secara pribadi. Tujuan informasi adalah untuk menganalisis tren, mengelola situs, melacak pergerakan pengguna di situs web, dan mengumpulkan informasi demografis.</p>
+    <br>
+    <h2>Cookies</h2>
+    <br>
+    <p>Seperti situs web lainnya, <a href="https://cyber-house.id" class="text-[#f5ba20]">cyber-house.id</a> menggunakan ‘cookie’. Cookie digunakan untuk menyimpan informasi seperti preferensi pengunjung dan halaman yang diakses atau dikunjungi pengunjung pada situs web ini. Informasi tersebut kami gunakan untuk mengoptimalkan pengalaman pengguna dengan menyesuaikan konten halaman web kami.</p>
+    <br>
+    <h2>Kebijakan Privasi Pihak Ketiga</h2>
+    <br>
+    <p>Kebijakan Privasi <a href="https://cyber-house.id" class="text-[#f5ba20]">cyber-house.id</a> tidak berlaku untuk pengiklan atau situs web lain. Karena itu, kami menyarankan Anda untuk membaca seksama masing-masing Kebijakan Privasi dari pihak ketiga untuk informasi yang lebih rinci. Anda berhak untuk menonaktifkan cookies pada browser Anda.</p>
+    <br>
+    <h2>Informasi Anak</h2>
+    <br>
+    <p>Salah satu prioritas kami adalah membantu perlindungan untuk anak-anak saat menggunakan internet. Kami mendorong orang tua dan wali untuk mengamati, berpartisipasi, memantau, dan membimbing aktivitas online mereka.</p>
+    <br>
+    <p><a href="https://cyber-house.id" class="text-[#f5ba20]">cyber-house.id</a> tidak dengan sengaja mengumpulkan informasi identifikasi pribadi apa pun dari anak-anak di bawah umur. Jika menurut Anda anak Anda memberikan informasi semacam ini di situs web kami, kami sangat menganjurkan Anda untuk segera menghubungi kami dan kami akan melakukan upaya terbaik kami untuk segera hapus informasi tersebut dari catatan kami.</p>
+    <br>
+    <h2>Persetujuan</h2>
+    <br>
+    <p>Dengan menggunakan situs web kami, Anda dengan ini menyetujui Kebijakan Privasi kami dan menyetujui syarat dan ketentuannya.</p>
+        </div>
+      </div>
+    </div>
+  </center>
+</div>) : (
+<div>
+  <center>
+    <div class=`accordion group relative mt-[1rem] w-[80%] max-sm:w-[90%] rounded-md bg-${color}`>
+      <button
+        class={`accordion__button flex w-full flex-1 items-center justify-between gap-2 p-3 text-left font-medium transition text-${size} hover:text-[#f5ba20] max-md:text-lg max-sm:text-sm sm:px-4`}
+        type="button"
+        id={`${Question} accordion menu button`}
+        aria-expanded="false"
+        aria-controls={`${Question} accordion menu content`}
+      >
+        {Question}
+        <Icon.ChevronDown
+          aria-hidden="true"
+          class="accordion__chevron h-7 w-7 shrink-0 transition-transform"
+        />
+      </button>
+
+      <div
+        id={`${Question} accordion menu content`}
+        aria-labelledby={`${Question} accordion menu button`}
+        class="accordion__content hidden max-h-0 overflow-hidden px-3 transition-all duration-300 ease-in-out sm:px-4"
+      >
+        <p class="prose mb-4 mt-1 max-w-full text-left transition-[height] max-sm:text-sm">
+          {Answer}
+        </p>
+      </div>
+    </div>
+  </center>
+</div>
+)
+}
+
+<script>
+  function accordionSetup() {
+    const accordionMenus = document.querySelectorAll(".accordion");
+
+    accordionMenus.forEach((accordionMenu) => {
+      const accordionButton = accordionMenu.querySelector(".accordion__button") as HTMLElement;
+      const accordionChevron = accordionMenu.querySelector(".accordion__chevron") as HTMLElement;
+      const accordionContent = accordionMenu.querySelector(".accordion__content") as HTMLElement;
+
+      if (accordionButton && accordionContent && accordionChevron) {
+        accordionButton.addEventListener("click", (event) => {
+          if (!accordionMenu.classList.contains("active")) {
+            accordionMenu.classList.add("active");
+            accordionButton.setAttribute("aria-expanded", "true");
+            accordionContent.classList.remove("hidden");
+            accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+            accordionChevron.classList.add("rotate-180");
+          } else {
+            accordionMenu.classList.remove("active");
+            accordionButton.setAttribute("aria-expanded", "false");
+            accordionContent.style.maxHeight = "0px";
+            accordionChevron.classList.remove("rotate-180");
+            setTimeout(() => {
+              accordionContent.classList.add("hidden");
+            }, 300);
+          }
+          event.preventDefault();
+        });
+      }
+    });
+  }
+
+  accordionSetup();
+  document.addEventListener("astro:after-swap", accordionSetup);
+</script>

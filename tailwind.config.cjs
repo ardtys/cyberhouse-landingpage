@@ -41,6 +41,5 @@ module.exports = {
   },
   plugins: [
     require("tailwindcss-fluid-type"),
-    require('flowbite/plugin')
   ],
 };
