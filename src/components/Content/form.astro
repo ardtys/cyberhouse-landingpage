@@ -106,7 +106,7 @@ const { nomor, subject, title, code } = Astro.props;
     }
     <div class="flex gap-2 mt-[1.5rem]">
         <input id="policy" type="checkbox" value="setuju" />
-        <p class="text-left mt-[-0.6rem]">
+        <p class="text-left mt-[-4px]">
             Dengan mendaftar, saya menerima Terms and Conditions <span
                 class="font-bold text-[#fab520]">Cyber House</span>
         </p>
@@ -183,7 +183,7 @@ ${code === "true" ? `🎟️ Code Promo: ${encodeURIComponent(codePromo)}%0A%0A`
 
 📝 Dengan mendaftar, saya menerima Terms %26 Conditions %26 Cyber House.%0A%0A
 
-Terima kasih atas pendaftarannya%21 🌟`
+${code === "true" ? `Bisa transfer dimana ya kak, untuk pembayarannya?` : ""} 🌟`
     // Membuat URL WhatsApp dengan parameter query yang telah di-encode
     let url = `https://api.whatsapp.com/send/?phone=${nomor}&text=${message}`;
 
