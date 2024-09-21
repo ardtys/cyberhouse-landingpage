@@ -1,0 +1,22 @@
+---
+import free_class_1 from "../assets/passClass/pass-class-video1.mp4"
+import ContentSection from "./content-section.astro"
+
+// const classes = [
+//   {
+//     src: free_class_1,
+//     description: "How To Secure Your Code With SAST"
+//   }
+// ]
+---
+
+<ContentSection id="pass class" title="PAST CLASS" >
+ <div class="p-2" >
+  <div class="w-8xl rounded-md bg-offset p-5 text-center" >
+    <h1 class="font-bold text-2xl text-center text-[#f5ba20] pb-5" >How To Secure Your Code With SAST</h1>
+  <video controls loop class="rounded-md mt-[10px]" width="900"  >
+      <source src={free_class_1} type="video/mp4"  />
+    </video>
+  </div>
+ </div>
+</ContentSection>
