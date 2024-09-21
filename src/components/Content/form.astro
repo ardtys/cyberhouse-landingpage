@@ -3,12 +3,12 @@ import Dropdown from './dropdown.astro';
 
 export interface Props {
     title: string;
-    subject: string;
     nomor: string;
     code: string;
+    classOption: string;
 }
 
-const { nomor, subject, title, code } = Astro.props;
+const { nomor, title, code, classOption} = Astro.props;
 ---
 
 <div class="bottom-2 w-full border border-solid" style="border-width: 3px;">
@@ -16,10 +16,23 @@ const { nomor, subject, title, code } = Astro.props;
 <form
     id="orderForm"
     data-title={title}
-    data-subject={subject}
     data-nomor={nomor}
     data-code={code}
 >
+<div>
+    {
+        classOption == "false" ? ("") : (
+        <div>
+        <label for="freeClass" class="block mb-2 text-lg text-white font-bold text-left mt-[1rem]">Pilih Kelas</label>
+    <select id="freeClass" name="freeClass" class="bg-white border p-2 px-5 block border-gray-300 text-black text-lg rounded-lg focus:ring-[#f5ba20] w-full dark:focus:ring-[#f5ba20] dark:focus:border-[#f5ba20]">
+      <option selected value="" >Pilih</option>
+      <option id="freeClass" value="Introduction of SOC Analyst">Introduction of SOC Analyst</option>
+      <option id="freeClass" value="Unlock the Power of SIEM and Wazuh: Essential Tools for Cybersecurity Management">Unlock the Power of SIEM and Wazuh: Essential Tools for Cybersecurity Management</option>
+    </select>
+    </div>
+        )
+    }
+   </div>
     <div class="mt-5 grid grid-cols-2 gap-3 text-left">
         <div>
             <label for="firstName" class="font-bold text-lg">
@@ -154,8 +167,8 @@ function handleFormSubmit(event) {
     const codePromo = (formObject["Promo-Code"] || "").trim();
     const nomor = form.getAttribute("data-nomor");
     const title = form.getAttribute("data-title");
-    const subject = form.getAttribute("data-subject");
     const sumber = (formObject["sumber"] || "").trim();
+    const freeClass = (formObject["freeClass"] || "").trim();
     const kesibukan = (formObject["kesibukan"] || "").trim();
 
     // Mengecek status checkbox
@@ -165,14 +178,14 @@ function handleFormSubmit(event) {
 
 
     // Mengecek data kosong
-    if (nama == "" || noTelephone == "" || kesibukan == "" || email === "" || sumber === "") {
+    if (nama == "" || noTelephone == "" || kesibukan == "" || email === "" || sumber === ""|| freeClass == "") {
         return alert("Data tidak boleh kosong");
     }
 
     let message = `
 🎉 **${title}** 🎉
 %0A%0A
-📚 Kelas: ${subject}
+📚 Kelas: ${freeClass}
 %0A%0A
 👤 Nama: ${encodeURIComponent(nama)}%0A%0A
 📞 Nomor Telepon: ${encodeURIComponent(noTelephone)}%0A%0A
@@ -183,7 +196,7 @@ ${code === "true" ? `🎟️ Code Promo: ${encodeURIComponent(codePromo)}%0A%0A`
 
 📝 Dengan mendaftar, saya menerima Terms %26 Conditions %26 Cyber House.%0A%0A
 
-${code === "true" ? `Bisa transfer dimana ya kak, untuk pembayarannya?` : ""} 🌟`
+${code === "true" ? `Bisa transfer dimana ya kak, untuk pembayarannya?` : ""}`
     // Membuat URL WhatsApp dengan parameter query yang telah di-encode
     let url = `https://api.whatsapp.com/send/?phone=${nomor}&text=${message}`;
 
