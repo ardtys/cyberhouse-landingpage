@@ -8,10 +8,20 @@ import "~/styles/index.css";
 <!doctype html>
 <html
 	lang="en"
-	class="h-full overflow-x-hidden motion-safe:scroll-smooth"
+	class="h-[100vh] overflow-x-hidden motion-safe:scroll-smooth"
 	data-theme="dark"
 >
 	<head>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2NRNJB8S4"/>
+		window.dataLayer = window.dataLayer || [];
+		<script is:inline>
+		  function gtag() {
+		    dataLayer.push(arguments);
+		  }
+		  gtag("js", new Date());
+	  
+		  gtag("config", "G-N2NRNJB8S4");
+		</script>
 		<title>Cyber House</title>
 		<link rel="icon" href="/favicon.webp" type="image/webp">
 		<meta charset="utf-8" />
