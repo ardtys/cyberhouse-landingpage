@@ -168,7 +168,6 @@ function handleFormSubmit(event) {
     const nomor = form.getAttribute("data-nomor");
     const title = form.getAttribute("data-title");
     const sumber = (formObject["sumber"] || "").trim();
-    const freeClass = (formObject["freeClass"] || "").trim();
     const kesibukan = (formObject["kesibukan"] || "").trim();
 
     // Mengecek status checkbox
@@ -178,14 +177,14 @@ function handleFormSubmit(event) {
 
 
     // Mengecek data kosong
-    if (nama == "" || noTelephone == "" || kesibukan == "" || email === "" || sumber === ""|| freeClass == "") {
+    if (nama == "" || noTelephone == "" || kesibukan == "" || email === "" || sumber === "") {
         return alert("Data tidak boleh kosong");
     }
 
     let message = `
 🎉 **${title}** 🎉
 %0A%0A
-📚 Kelas: ${freeClass}
+📚 Kelas: ${code == "true" ? "Mastering Cyber Security Zero To Hero 👨🏻‍💻👨🏻‍💻👨🏻‍💻" : ""}
 %0A%0A
 👤 Nama: ${encodeURIComponent(nama)}%0A%0A
 📞 Nomor Telepon: ${encodeURIComponent(noTelephone)}%0A%0A
